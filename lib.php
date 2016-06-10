@@ -391,19 +391,28 @@ function oublog_get_recent_mod_activity(&$activities, &$index, $timestart, $cour
             }
         }
 
-        $tmpactivity = new object();
+        // START UCLA-MOD: CCLE-5896-upgrade-to-support-Moodle31
+        // $tmpactivity = new object();
+        $tmpactivity = new stdClass();
+        // END UCLA-MOD: CCLE-5896-upgrade-to-support-Moodle31
 
         $tmpactivity->type         = 'oublog';
         $tmpactivity->cmid         = $cm->id;
         $tmpactivity->name         = $blog->title;
         $tmpactivity->sectionnum   = $cm->sectionnum;
         $tmpactivity->timeposted    = $blog->timeposted;
-
-        $tmpactivity->content = new object();
+            
+        // START UCLA-MOD: CCLE-5896-upgrade-to-support-Moodle31
+        // $tmpactivity->content = new object();
+        $tmpactivity->content = new stdClass();
+        // END UCLA-MOD: CCLE-5896-upgrade-to-support-Moodle31
         $tmpactivity->content->postid   = $blog->postid;
         $tmpactivity->content->title    = format_string($blog->title);
 
-        $tmpactivity->user = new object();
+        // START UCLA-MOD: CCLE-5896-upgrade-to-support-Moodle31
+        // $tmpactivity->user = new object();
+        $tmpactivity->user = new stdClass();
+        // END UCLA-MOD: CCLE-5896-upgrade-to-support-Moodle31
         $tmpactivity->user->id        = $blog->userid;
         $tmpactivity->user->firstname = $blog->firstname;
         $tmpactivity->user->lastname  = $blog->lastname;
